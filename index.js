@@ -34,13 +34,9 @@ app.post("/", (req, res) => {
     "action_move_card_from_list_to_list"
   ) {
     console.log("registered card did move from list to list");
-    console.log(
-      "CLIENT:::::::::::::::::::::::::::",
-      client.channels.cache.get("930564307547197494")
-    );
-    client.channels.cache
-      .get("930564307547197494")
-      .send("Detection of task moving from list to list!");
+    const channel = client.channels.cache.get("930564307547197494");
+    console.log("CLIENT:::::::::::::::::::::::::::", channel);
+    channel.send("Detection of task moving from list to list!");
   } else {
     console.log("did NOT register card moving from list to list");
   }
