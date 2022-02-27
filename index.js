@@ -34,8 +34,11 @@ app.post("/", (req, res) => {
     "action_move_card_from_list_to_list"
   ) {
     console.log("registered card did move from list to list");
-    console.log();
-    client.guilds.cache.get("930564307547197494").send("Task was moved!!!"); // used for specific channel
+    console.log(
+      "CLIENT:::::::::::::::::::::::::::",
+      client.guilds.cache.get("930564307547197494")
+    );
+    // client.guilds.cache.get("930564307547197494").send("Task was moved!!!"); // used for specific channel
   } else {
     console.log("did NOT register card moving from list to list");
   }
