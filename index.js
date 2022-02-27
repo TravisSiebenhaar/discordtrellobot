@@ -29,6 +29,16 @@ app.head("/", (req, res) => {
 
 app.post("/", (req, res) => {
   console.log("req: ", req.body.action.display);
+  if (
+    req.body.action.display.translationKey ==
+    "action_move_card_from_list_to_list"
+  ) {
+    console.log("registered card did move from list to list");
+    client.channels.cache.get("<general>").send("[Test]: Card was moved");
+  } else {
+    console.log("did NOT register card moving from list to list");
+  }
+
   res.status(200);
   res.send("hello world");
 });
