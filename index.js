@@ -34,8 +34,11 @@ app.post("/", (req, res) => {
     "action_move_card_from_list_to_list"
   ) {
     console.log("registered card did move from list to list");
-    const channel = client.channels.cache.get("930564307547197494");
-    console.log("Client channels: ", client.channels);
+    const channel = message.guild.channels.cache.find(
+      (channel) => channel.name === "General"
+    );
+
+    // console.log("Client channels: ", channel);
     console.log("CHANNEL: ", channel);
     channel.send("Detection of task moving from list to list!");
   } else {
