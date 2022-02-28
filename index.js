@@ -18,14 +18,6 @@ client.on("ready", () => {
 
 client.login(process.env.DISCORD_BOT_TOKEN);
 
-const sendMessage = () => {
-  console.log("sendMessage");
-  client.on("messageCreate", (message) => {
-    console.log("message: ", message);
-    message.channel.send("Detection of task moving from list to list!");
-  });
-};
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -41,14 +33,10 @@ app.post("/", (req, res) => {
     req.body.action.display.translationKey ==
     "action_move_card_from_list_to_list"
   ) {
-    console.log("registered card did move from list to list");
-    const channel = client.channels.cache.find(
-      (channel) => channel.name === "General"
-    );
-
-    // console.log("Client channels: ", channel);
-    sendMessage();
-    // channel.send("Detection of task moving from list to list!");
+    console.log("registered card did move from list to list.");
+    const channel = client.channels.cache.get("930564307547197494");
+    console.log("CHANNEL: ", channel);
+    channel.send("Trello activity detected.");
   } else {
     console.log("did NOT register card moving from list to list");
   }
