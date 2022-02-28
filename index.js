@@ -28,15 +28,12 @@ app.head("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log("req: ", req.body.action.display);
-  if (
-    req.body.action.display.translationKey ==
-    "action_move_card_from_list_to_list"
-  ) {
-    console.log("registered card did move from list to list.");
+  const res = req.body.action.display;
+  if (res.translationKey == "action_move_card_from_list_to_list") {
     const channel = client.channels.cache.get("930564307547197494");
-    console.log("CHANNEL: ", channel);
-    channel.send("Trello activity detected.");
+    channel.send(
+      `${res.memberCreator.text} moved card from ${res.listBefore.text} to ${res.listAfter.text}`
+    );
   } else {
     console.log("did NOT register card moving from list to list");
   }
