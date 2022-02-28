@@ -34,6 +34,10 @@ app.post("/", (req, res) => {
     console.log("registered card did move from list to list.");
     const channel = client.channels.cache.get("930564307547197494");
     console.log("display: ", display);
+    console.log("memberCreator:", display.memberCreator.text);
+    console.log("listBefore:", display.listBefore.text);
+    console.log("listAfter:", display.listAfter.text);
+
     channel.send(
       `${display.memberCreator.text} moved card from ${display.listBefore.text} to ${display.listAfter.text}`
     );
