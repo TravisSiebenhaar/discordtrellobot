@@ -18,6 +18,12 @@ client.on("ready", () => {
 
 client.login(process.env.DISCORD_BOT_TOKEN);
 
+const sendMessage = () => {
+  client.on("messageCreate", (message) => {
+    message.channel.send("Detection of task moving from list to list!");
+  });
+};
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -39,8 +45,8 @@ app.post("/", (req, res) => {
     );
 
     // console.log("Client channels: ", channel);
-    console.log("CHANNEL: ", channel);
-    channel.send("Detection of task moving from list to list!");
+    sendMessage();
+    // channel.send("Detection of task moving from list to list!");
   } else {
     console.log("did NOT register card moving from list to list");
   }
