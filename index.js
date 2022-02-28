@@ -29,13 +29,13 @@ app.head("/", (req, res) => {
 
 app.post("/", (req, res) => {
   console.log("req: ", req.body.action.display);
-  if (
-    req.body.action.display.translationKey ==
-    "action_move_card_from_list_to_list"
-  ) {
+  const display = req.body.action.display;
+  if (display.translationKey == "action_move_card_from_list_to_list") {
     console.log("registered card did move from list to list.");
     const channel = client.channels.cache.get("930564307547197494");
-    // channel.send($``);
+    channel.send(
+      `${display.memberCreator.text} moved card from ${display.listBefore.text} to ${display.listAfter.text}`
+    );
   } else {
     console.log("did NOT register card moving from list to list");
   }
