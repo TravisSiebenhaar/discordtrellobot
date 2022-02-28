@@ -29,12 +29,12 @@ app.head("/", (req, res) => {
 
 app.post("/", (req, res) => {
   console.log("req: ", req.body.action.display);
-  const display = req.body.action.display;
+  const display = req.body.action.display.translationKey;
   if (display.translationKey == "action_move_card_from_list_to_list") {
     console.log("registered card did move from list to list.");
     const channel = client.channels.cache.get("930564307547197494");
     console.log("display: ", display);
-    console.log("memberCreator:", display.memberCreator.text);
+    console.log("memberCreator:", display.entities.memberCreator.text);
     console.log("listBefore:", display.listBefore.text);
     console.log("listAfter:", display.listAfter.text);
 
