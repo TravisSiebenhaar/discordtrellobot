@@ -34,7 +34,7 @@ app.post("/", (req, res) => {
     console.log("registered card did move from list to list.");
     const channel = client.channels.cache.get("930564307547197494");
     channel.send(
-      `${display.entities.memberCreator.text} moved card from ${display.entities.listBefore.text} to ${display.entities.listAfter.text}`
+      `${display.entities.memberCreator.text} moved a card from ${display.entities.listBefore.text} to ${display.entities.listAfter.text}`
     );
   } else {
     console.log("did NOT register card moving from list to list");
