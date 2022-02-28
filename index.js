@@ -29,7 +29,7 @@ app.head("/", (req, res) => {
 
 app.post("/", (req, res) => {
   console.log("req: ", req.body.action.display);
-  const display = req.body.action.display.translationKey;
+  const display = req.body.action.display;
   if (display.translationKey == "action_move_card_from_list_to_list") {
     console.log("registered card did move from list to list.");
     const channel = client.channels.cache.get("930564307547197494");
