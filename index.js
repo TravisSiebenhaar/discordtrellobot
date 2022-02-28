@@ -33,13 +33,8 @@ app.post("/", (req, res) => {
   if (display.translationKey == "action_move_card_from_list_to_list") {
     console.log("registered card did move from list to list.");
     const channel = client.channels.cache.get("930564307547197494");
-    console.log("display: ", display);
-    console.log("memberCreator:", display.entities.memberCreator.text);
-    console.log("listBefore:", display.listBefore.text);
-    console.log("listAfter:", display.listAfter.text);
-
     channel.send(
-      `${display.memberCreator.text} moved card from ${display.listBefore.text} to ${display.listAfter.text}`
+      `${display.entities.memberCreator.text} moved card from ${display.entities.listBefore.text} to ${display.entities.listAfter.text}`
     );
   } else {
     console.log("did NOT register card moving from list to list");
