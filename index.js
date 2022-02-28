@@ -19,7 +19,9 @@ client.on("ready", () => {
 client.login(process.env.DISCORD_BOT_TOKEN);
 
 const sendMessage = () => {
+  console.log("sendMessage");
   client.on("messageCreate", (message) => {
+    console.log("message: ", message);
     message.channel.send("Detection of task moving from list to list!");
   });
 };
