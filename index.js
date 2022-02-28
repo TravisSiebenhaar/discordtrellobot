@@ -34,7 +34,7 @@ app.post("/", (req, res) => {
     "action_move_card_from_list_to_list"
   ) {
     console.log("registered card did move from list to list.");
-    const channel = client.channels.cache.get("930564307547197494");
+    const channel = client.channels.cache.get("30564307547197491");
     console.log("CHANNEL: ", channel);
     channel.send("Trello activity detected.");
   } else {
