@@ -34,7 +34,7 @@ app.post("/", (req, res) => {
     "action_move_card_from_list_to_list"
   ) {
     console.log("registered card did move from list to list");
-    const channel = message.guild.channels.cache.find(
+    const channel = client.guild.channels.cache.find(
       (channel) => channel.name === "General"
     );
 
